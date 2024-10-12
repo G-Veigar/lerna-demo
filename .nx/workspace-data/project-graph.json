@@ -1,0 +1,207 @@
+{
+  "nodes": {
+    "@lk/module1": {
+      "name": "@lk/module1",
+      "type": "lib",
+      "data": {
+        "root": "packages/module1",
+        "sourceRoot": "packages/module1",
+        "name": "@lk/module1",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "test",
+              "build"
+            ]
+          },
+          "description": "> TODO: description"
+        },
+        "targets": {
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "node ./__tests__/module1.test.js",
+              "runCommand": "pnpm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^test"
+            ]
+          },
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "node ./lib/module1.js",
+              "runCommand": "pnpm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/dist"
+            ]
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@lk/module2": {
+      "name": "@lk/module2",
+      "type": "lib",
+      "data": {
+        "root": "packages/module2",
+        "sourceRoot": "packages/module2",
+        "name": "@lk/module2",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "test",
+              "build"
+            ]
+          },
+          "description": "> TODO: description"
+        },
+        "targets": {
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "node ./__tests__/module2.test.js",
+              "runCommand": "pnpm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^test"
+            ]
+          },
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "node ./lib/module2.js",
+              "runCommand": "pnpm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/dist"
+            ]
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@lk/utils": {
+      "name": "@lk/utils",
+      "type": "lib",
+      "data": {
+        "root": "packages/utils",
+        "sourceRoot": "packages/utils",
+        "name": "@lk/utils",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "test"
+            ]
+          },
+          "description": "> TODO: description"
+        },
+        "targets": {
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "node ./__tests__/utils.test.js",
+              "runCommand": "pnpm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^test"
+            ]
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "@lk/module1": [
+      {
+        "source": "@lk/module1",
+        "target": "@lk/utils",
+        "type": "static"
+      }
+    ],
+    "@lk/module2": [
+      {
+        "source": "@lk/module2",
+        "target": "@lk/utils",
+        "type": "static"
+      }
+    ],
+    "@lk/utils": []
+  },
+  "version": "6.0"
+}
