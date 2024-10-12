@@ -1,0 +1,26 @@
+{
+  "name": "@lk/module2",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "高歌 <ge.gao@lkcoffee.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/module2.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "scripts": {
+    "test": "node ./__tests__/module2.test.js",
+    "build": "node ./lib/module2.js"
+  },
+  "dependencies": {
+    "@lk/utils": "workspace:^"
+  }
+}
