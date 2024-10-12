@@ -3,7 +3,7 @@ const path = require('path');
 
 function createFile() {
     // 使用 path.resolve() 定位到项目根目录的 dist 文件夹
-    const filePath = path.resolve(__dirname, '../dist/hello-lerna.txt'); 
+    const filePath = path.resolve(__dirname, '../dist/hello-lerna2.txt'); 
     const content = 'hello lerna';
 
     fs.writeFile(filePath, content, (err) => {
